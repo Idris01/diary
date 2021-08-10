@@ -25,10 +25,13 @@ jobs:
           cd backend
           ls
       - name: setup database
-        run:
-          python3 manage.py makemigrations
-          python3 manage.py migrate
+        run: |
+          pipenv run python3 manage.py makemigrations
+         
+      - name: migrate database
+        run: |
+          pipenv python3 manage.py migrate
 
       - name: run tests
         run: |
-          python3 manage.py test
+         pipenv python3 manage.py test
