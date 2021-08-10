@@ -13,7 +13,14 @@ jobs:
       - name: Run Django Api Test
         run: |
           pip3 install --user pipenv
-          pipenv shell
+
+      - id: cache-pipenv
+        uses: actions/cache@v1
+        with:
+          path: ~/.local/share/virtualenvs
+
+      - name: Install Dependencies
+        run: |
           pipenv install --dev
           pip freeze
           cd backend
