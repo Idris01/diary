@@ -13,7 +13,7 @@ jobs:
       - name: Run Django Api Test
         run: |
           pip3 install --user pipenv
-          pipenv install
+          pipenv install --dev
           cd backend
           python3 manage.py makemigrations
           python3 manage.py migrate
