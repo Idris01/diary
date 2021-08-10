@@ -14,7 +14,9 @@ jobs:
         run: |
           pip3 install --user pipenv
           pipenv install --dev
+          pip freeze
           cd backend
+          pwd
           python3 manage.py makemigrations
           python3 manage.py migrate
           python3 manage.py test
