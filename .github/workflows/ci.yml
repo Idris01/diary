@@ -8,6 +8,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run Django Api Test
         run: |
+          sudo apt-get update
           pip3 install --user pipenv
           pipenv install
           cd backend
