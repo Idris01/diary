@@ -19,10 +19,16 @@ jobs:
           pipenv install --dev
       - name: list installed dependencies
         run: |
-          pip freeze
+          pipenv run pip freeze
       - name: change to project directory
-        run:
+        run: |
           cd backend
+          ls
+      - name: setup database
+        run:
           python3 manage.py makemigrations
           python3 manage.py migrate
+
+      - name: run tests
+        run: |
           python3 manage.py test
