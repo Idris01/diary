@@ -26,5 +26,5 @@ class AccountTest( APITestCase):
         url=reverse("task-list")
         response=self.client.post(url,data)
         self.assertEqual(response.status_code,201)
-        self.assertEqual(Todo.objects.count(),1)
+        self.assertEqual(Todo.objects.count(),2)
 
