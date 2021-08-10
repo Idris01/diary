@@ -14,17 +14,15 @@ jobs:
         run: |
           pip3 install --user pipenv
 
-      - id: cache-pipenv
-        uses: actions/cache@v2
-        with:
-          path: ~/.local/share/virtualenvs
-          key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-pipenv-${{ hashFiles('Pipfile.lock') }}
       - name: Install Dependencies
         run: |
           pipenv install --dev
+      - name: list installed dependencies
+        run: |
           pip freeze
+      - name: change to project directory
+        run:
           cd backend
-          pwd
           python3 manage.py makemigrations
           python3 manage.py migrate
           python3 manage.py test
