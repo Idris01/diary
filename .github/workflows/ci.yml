@@ -26,7 +26,7 @@ jobs:
           ls
       - name: setup database
         run: |
-          pipenv run python3 manage.py makemigrations
+          pipenv run python3 manage.py makemigrations account
          
       - name: migrate database
         run: |
