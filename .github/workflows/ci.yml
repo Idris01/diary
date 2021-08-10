@@ -1,0 +1,16 @@
+name: Testing
+on: push
+
+jobs:
+  name: Test_Project
+  runs_on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+    - name: Run Django Api Test
+      run: |
+        pip3 install --user pipenv
+        pipenv install
+        cd backend
+        python3 manage.py makemigrations
+        python3 manage.py migrate
+        python3 manage.py test

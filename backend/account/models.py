@@ -15,5 +15,5 @@ class Todo(models.Model):
         else:
             comp="UnCompleted"
 
-        return "{} : {}".format(self.title,com)
+        return "{} : {}".format(self.title,comp)
 
