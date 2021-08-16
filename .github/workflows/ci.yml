@@ -30,8 +30,8 @@ jobs:
          
       - name: migrate database
         run: |
-          pipenv python3 manage.py migrate
+          pipenv run python3 manage.py migrate
 
       - name: run tests
         run: |
-         pipenv python3 manage.py test
+         pipenv run python3 manage.py test
